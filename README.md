@@ -1,70 +1,104 @@
-# Getting Started with Create React App
+# ReadIt
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### By Kirsten Opstad & Aitana Shough
 
-## Available Scripts
+#### A Redux Vote-Based Discussion Forum
 
-In the project directory, you can run:
+## Technologies Used
 
-### `npm start`
+* React
+* JavaScript
+* Bootstrap
+* HTML
+* CSS
+* webpack
+* Node.js
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Description
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+__Prompt__
 
-### `npm test`
+Sites like Reddit, HackerNews and others offer a collection of different pages or forums where users may post news, pictures, and other information around a certain topic. Other users can then upvote or downvote content. The more upvotes an item receives, the higher it's displayed on the list. Recreate a basic subreddit and/or vote-based discussion board using React and Redux. Here are some user stories to get you started:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Objectives (MVP)
+__User Stories:__
+* As a user, I want to enter content into a form and submit to create a new post.
+* As a user, I want my new posts to include a timestamp. And I want to see when other listings were posted, too.
+* As a user, I want to upvote posts I particularly enjoy.
+* As a user, I want to downvote posts I don't like, or find inappropriate.
+* As a user, I'd like posts with the most upvotes to appear higher on the page. 
 
-### `npm run build`
+### Further Exploration (Stretch Goals)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+__User stories:__
+* As a user, I want the option to edit a coffee sack's properties after entering them just in case I make a mistake.
+* As a user, I want to be able to delete a coffee sack.
+* As a user, I want a coffee sack to update to say "Out of Stock" once it's empty.
+* As a user, I want coffee sacks with less than 10 pounds to include a message that says "Almost Empty" so I can buy a pound of it before it's gone!
+* As a user, I want to have coffee prices to be color-coded for easy readability. This could be based on their price, their origin or roast, or the amount of pounds left.
+* As a user, I want this application to be nicely styled. (Use stylesheets and CSS objects!)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+__Further Exploration__
+* As a user, I want to click a post to view additional details. For now simply hide/show some message content. (Hint: You could create a currentlySelectedPost Redux state key, and alter the value based on which post the user is selecting.)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Process 
+1. Create component drawing 
+[![Component Drawing](./src/img/component_diagram.png)](https://www.figma.com/file/60mpb3MWZ7DSwzSeSoDFza/ReadIt?node-id=0%3A1&t=UREQKKZbX4YaWUe9-0)
+2. Establish Component Hierarchy:
+    * App.js
+      * Header.js -> recieves user input with Create Post button
+      * PostControl.js - displays either list, detail or create
+        * List.js – displays all posts 
+          * Post.js – displays Author, Title, Review, VoteCount -> recieves user input & in up / down vote click
+        * Detail.js – displays details for single post
+        * CreatePost.js – form to add new post
+        <!-- Strech Components -->
+        <!-- * Edit.js – form to edit item in inventory -->
+3. Build Static Components
+4. Add State
+  * Local State to display either list, detail or add
+  * Shared State to allow Create & Upvote / DownVote Functionality
+5. Style to match [inspiration](./src/img/component_diagram.png)
 
-### `npm run eject`
+<!-- [x] Screenshots
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Screenshots](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.03bZmDGXaBhBYyxxp3Ls3gHaEA%26pid%3DApi&f=1&ipt=e980d57210242747a51c41421e1f09a6de3b1fdaeaadd297496787bb64e80c88&ipo=images) -->
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<!-- [Link to operational site](http://www.kirstenopstad.github.com/<REPOSITORY NAME>) -->
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Goals
+1. Meet MVP
+2. Add styling to match inspiration 
+3. Stretch: Add Delete Post functionality
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Setup/Installation Requirements
 
-## Learn More
+* Clone this repo to your workspace.
+* Navigate to the top level of the directory.
+* In the root directory of the project, run this command to install all packages listed in the package.json:
+```
+$ npm install
+```
+* Then, to build and serve the project, run: 
+```
+$ npm run start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Known Bugs
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* No known bugs. If you find one, please email me at kirsten.opstad@gmail.com with the subject **[_Repo Name_] Bug** and include:
+  * BUG: _A brief description of the bug_
+  * FIX: _Suggestion for solution (if you have one!)_
+  * If you'd like to be credited, please also include your **_github user profile link_**
 
-### Code Splitting
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+MIT License
 
-### Analyzing the Bundle Size
+Copyright (c) 2023 Kirsten Opstad & Aitana Shough
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-### Making a Progressive Web App
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
