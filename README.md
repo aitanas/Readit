@@ -58,7 +58,7 @@ __Further Exploration__
 4. Add State
   * Local State to display either list, detail or add
   * Shared State to allow Create & Upvote / DownVote Functionality
-5. Style to match [inspiration](./src/img/component_diagram.png)
+5. Style to match ![inspiration](./src/img/component_diagram.png)
 
 <!-- [x] Screenshots
 
