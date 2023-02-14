@@ -11,7 +11,7 @@ describe('postListReducer', () => {
     reviewTitle: "Cloud Atlas by David Mitchell: A Masterful Blend of Compelling Storytelling and Philosophical Musings",
     reviewAuthor: 'Gloria Patrick Thomas III',
     dateTime: '2023-02-14',
-    review: '"Cloud Atlas" by David Mitchell is a true masterpiece that left me captivated from beginning to end.',
+    review: 'Cloud Atlas by David Mitchell is a true masterpiece that left me captivated from beginning to end.',
     votes: 0,
     bookTitle: 'Cloud Atlas',
     bookAuthor: 'David Mitchell',
@@ -23,7 +23,7 @@ describe('postListReducer', () => {
   })
 
   test('should add new review to reviewList', () => {
-    const { reviewTitle, reviewAuthor, review, bookAuthor, bookTitle, votes, id } = reviewData;
+    const { reviewTitle, reviewAuthor, review, bookAuthor, bookTitle, votes, id, dateTime } = reviewData;
     action = {
       type: 'ADD_POST',
       reviewTitle: reviewTitle,
@@ -31,7 +31,8 @@ describe('postListReducer', () => {
       review: review,
       bookTitle: bookTitle,
       bookAuthor: bookAuthor,
-      votes: 0,
+      dateTime: dateTime,
+      votes: votes,
       id: 1
     }
 
@@ -42,7 +43,9 @@ describe('postListReducer', () => {
         review: review,
         bookTitle: bookTitle,
         bookAuthor: bookAuthor,
-        votes: 0,
+        dateTime: dateTime,
+        votes: votes,
+        id: 1
       }
     })
   })
