@@ -14,6 +14,8 @@ const reducer = (state = {}, action) => {
           id: id
         }
       });
+    case 'UP_VOTE':
+      return state;
     default:
       return state;
   }

@@ -50,5 +50,25 @@ describe('postListReducer', () => {
     })
   })
 
+  test('should increment votes by one', () => {
+    const { reviewTitle, reviewAuthor, review, bookAuthor, bookTitle, votes, id, dateTime} = reviewData
+    action = {
+      type: 'UP_VOTE',
+      id: 1
+    }
+
+    expect(postListReducer(reviewData, action)).toEqual(
+       {reviewTitle: reviewTitle,
+        reviewAuthor: reviewAuthor,
+        review: review,
+        bookTitle: bookTitle,
+        bookAuthor: bookAuthor,
+        dateTime: dateTime,
+        votes: 1,
+        id: 1
+    })
+  })
+  
+
 });
 
