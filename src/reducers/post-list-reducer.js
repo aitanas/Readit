@@ -15,7 +15,10 @@ const reducer = (state = {}, action) => {
         }
       });
     case 'UP_VOTE':
-      return state;
+      let newState = {...state}
+      const newVotes =  newState[action.id]["votes"] + 1
+      newState[action.id]["votes"] = newVotes
+      return newState
     default:
       return state;
   }

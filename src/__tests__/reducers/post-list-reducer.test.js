@@ -17,6 +17,32 @@ describe('postListReducer', () => {
     bookAuthor: 'David Mitchell',
     id: 1
   };
+
+  // dummy state data for testing up votes
+  const dummyState = {
+    [1]:
+    { 
+      reviewTitle: "Cloud Atlas by David Mitchell: A Masterful Blend of Compelling Storytelling and Philosophical Musings",
+      reviewAuthor: 'Gloria Patrick Thomas III',
+      dateTime: '2023-02-14',
+      review: 'Cloud Atlas by David Mitchell is a true masterpiece that left me captivated from beginning to end.',
+      votes: 0,
+      bookTitle: 'Cloud Atlas',
+      bookAuthor: 'David Mitchell',
+      id: 1
+    },
+    [2]:
+    { 
+      reviewTitle: "Cloud Atlas by David Mitchell: A Masterful Blend of Compelling Storytelling and Philosophical Musings",
+      reviewAuthor: 'Floria Patrick Thomas II',
+      dateTime: '2023-02-14',
+      review: 'Cloud Atlas by David Mitchell is a true masterpiece that left me captivated from beginning to end.',
+      votes: 0,
+      bookTitle: 'Cloud Atlas',
+      bookAuthor: 'David Mitchell',
+      id: 2
+    }
+  }
   
   test('should return default state if no action type is passed into reducer', () => {
     expect(postListReducer({}, { type: null })).toEqual({});
@@ -57,16 +83,31 @@ describe('postListReducer', () => {
       id: 1
     }
 
-    expect(postListReducer(reviewData, action)).toEqual(
-       {reviewTitle: reviewTitle,
-        reviewAuthor: reviewAuthor,
-        review: review,
-        bookTitle: bookTitle,
-        bookAuthor: bookAuthor,
-        dateTime: dateTime,
-        votes: 1,
-        id: 1
-    })
+    expect(postListReducer(dummyState, action)).toEqual(
+      {
+        [1]:
+        { 
+          reviewTitle: "Cloud Atlas by David Mitchell: A Masterful Blend of Compelling Storytelling and Philosophical Musings",
+          reviewAuthor: 'Gloria Patrick Thomas III',
+          dateTime: '2023-02-14',
+          review: 'Cloud Atlas by David Mitchell is a true masterpiece that left me captivated from beginning to end.',
+          votes: 1,
+          bookTitle: 'Cloud Atlas',
+          bookAuthor: 'David Mitchell',
+          id: 1
+        },
+        [2]:
+        { 
+          reviewTitle: "Cloud Atlas by David Mitchell: A Masterful Blend of Compelling Storytelling and Philosophical Musings",
+          reviewAuthor: 'Floria Patrick Thomas II',
+          dateTime: '2023-02-14',
+          review: 'Cloud Atlas by David Mitchell is a true masterpiece that left me captivated from beginning to end.',
+          votes: 0,
+          bookTitle: 'Cloud Atlas',
+          bookAuthor: 'David Mitchell',
+          id: 2
+        }
+        })
   })
   
 
