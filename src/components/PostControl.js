@@ -1,25 +1,57 @@
 import React from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import PropTypes from "prop-types";
 import Detail from '../components/Detail';
 import List from '../components/List';
 import CreatePost from './CreatePost';
+import * as a from './../actions';
 
-const PostControl = () => {
+class PostControl extends React.Component {
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      // this makes eslint happy - no-useless-constructors
+    }
+  }
 
-  return(
-    <React.Fragment>
-      <Detail />
-      <List />
-      <CreatePost />
-    </React.Fragment>
+  handleAddingNewPost = (newPost) => {
+    const { dispatch } = this.props;
+    const action = a.addPost(newPost);
+    dispatch(action);
+  }
 
-  );
+  render() {
+    // TODO: route to actual selected ticket
+    // const postDetail = this.props.postList["1"]
+    // const detail = <Detail post={postDetail}/>
+
+    // get const list component
+    return(
+      <React.Fragment>
+        {/* {detail} */}
+        <List postList={this.props.postList} />
+        <CreatePost formSubmissionHandler={this.handleAddingNewPost} />
+      </React.Fragment>
+
+    );
+  }
 
 }
 
-// Proptypes!
 // Map to props!
+const mapStateToProps = state => {
+  return {
+    postList: state,
+  }
+}
+
+// Proptypes!
+PostControl.propTypes = {
+  postList: PropTypes.object,
+}
+
 // Connect wrapper
+PostControl = connect(mapStateToProps)(PostControl)
 
 export default PostControl;
