@@ -21,6 +21,7 @@ describe('postListReducer', () => {
   let dummyState;
 
   beforeEach(() => {
+    const { reviewTitle, reviewAuthor, review, bookAuthor, bookTitle, votes, id, dateTime } = reviewData
     // dummy state data for testing up votes
     dummyState = {
       [1]:
@@ -81,7 +82,6 @@ describe('postListReducer', () => {
   })
 
   test('should increment votes by one', () => {
-    const { reviewTitle, reviewAuthor, review, bookAuthor, bookTitle, votes, id, dateTime} = reviewData
     action = {
       type: 'UP_VOTE',
       id: 1
@@ -115,7 +115,6 @@ describe('postListReducer', () => {
       })
 
   test('should decrement votes by one', () => {
-    const { reviewTitle, reviewAuthor, review, bookAuthor, bookTitle, votes, id, dateTime } = reviewData
     action = {
       type: 'DOWN_VOTE',
       id: 2
@@ -146,4 +145,32 @@ describe('postListReducer', () => {
       }
     });
   })
+
+  // test('should sort posts by most popular', () => {
+  //   action = {
+  //     type: 'SORT_BY_VOTES',
+  //   }
+  //   expect(postListReducer(dummyState, action)).toEqual(
+  //     [{ 
+  //       reviewTitle: "Cloud Atlas by David Mitchell: A Masterful Blend of Compelling Storytelling and Philosophical Musings",
+  //       reviewAuthor: 'Floria Patrick Thomas II',
+  //       dateTime: '2023-02-14',
+  //       review: 'Cloud Atlas by David Mitchell is a true masterpiece that left me captivated from beginning to end.',
+  //       votes: 2,
+  //       bookTitle: 'Cloud Atlas',
+  //       bookAuthor: 'David Mitchell',
+  //       id: 2
+  //     },
+  //     { 
+  //       reviewTitle: "Cloud Atlas by David Mitchell: A Masterful Blend of Compelling Storytelling and Philosophical Musings",
+  //       reviewAuthor: 'Gloria Patrick Thomas III',
+  //       dateTime: '2023-02-14',
+  //       review: 'Cloud Atlas by David Mitchell is a true masterpiece that left me captivated from beginning to end.',
+  //       votes: 0,
+  //       bookTitle: 'Cloud Atlas',
+  //       bookAuthor: 'David Mitchell',
+  //       id: 1
+  //     }]
+  //   )
+  // })
 })

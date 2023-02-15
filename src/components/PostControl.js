@@ -18,4 +18,8 @@ const PostControl = () => {
 
 }
 
+// Proptypes!
+// Map to props!
+// Connect wrapper
+
 export default PostControl;
