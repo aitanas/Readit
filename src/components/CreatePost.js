@@ -1,10 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { v4 } from 'uuid';
 
 const CreatePost = (props) => {
+  // TODO: add internal onSubmit handler
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newPost = {
+      reviewAuthor: e.target.reviewAuthor.value,
+      reviewTitle: e.target.reviewTitle.value,
+      bookTitle: e.target.bookTitle.value,
+      bookAuthor: e.target.bookAuthor.value,
+      dateTime: e.target.dateTime.value,
+      review: e.target.review.value,
+      id: v4()
+    }
+
+    props.onAddNewPost(newPost)
+  }
+
   return(
     <React.Fragment>
-      <form onSubmit={props.formSubmissionHandler}>
+      <form onSubmit={handleSubmit}>
         <input
           type='text'
           name='reviewAuthor'
@@ -36,7 +53,7 @@ const CreatePost = (props) => {
 }
 
 CreatePost.propTypes = {
-  formSubmissionHandler: PropTypes.func
+  onAddNewPost: PropTypes.func
 };
 
 export default CreatePost

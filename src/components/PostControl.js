@@ -31,7 +31,7 @@ class PostControl extends React.Component {
       <React.Fragment>
         {/* {detail} */}
         <List postList={this.props.postList} />
-        <CreatePost formSubmissionHandler={this.handleAddingNewPost} />
+        <CreatePost onAddNewPost={this.handleAddingNewPost} />
       </React.Fragment>
 
     );
@@ -42,7 +42,7 @@ class PostControl extends React.Component {
 // Map to props!
 const mapStateToProps = state => {
   return {
-    postList: state,
+    postList: state.postList,
   }
 }
 

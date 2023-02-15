@@ -1,8 +1,8 @@
-import ReviewsList from '../reducers/post-list-reducer';
+import postListReducer from '../reducers/post-list-reducer';
 import { combineReducers } from 'redux';
 
 const rootReducer = combineReducers({
-  ReviewsList: ReviewsList
+  postList: postListReducer
 })
 
 export default rootReducer
