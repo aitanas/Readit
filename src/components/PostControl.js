@@ -54,7 +54,7 @@ class PostControl extends React.Component {
 // Map to props!
 const mapStateToProps = state => {
   // ordered-by-votes array containing IDs, store in state
-
+  
   return {
     postList: state.postList,
     // voteOrder: state.voteOrder

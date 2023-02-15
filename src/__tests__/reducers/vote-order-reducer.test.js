@@ -25,6 +25,7 @@ describe('voteOrderReducer', () => {
     const { reviewTitle, reviewAuthor, review, bookAuthor, bookTitle, votes, id, dateTime } = reviewData
     // dummy state data for testing up votes
     dummyState = {
+      postList: {
       [1]:
       { 
         reviewTitle: "Cloud Atlas by David Mitchell: A Masterful Blend of Compelling Storytelling and Philosophical Musings",
@@ -47,6 +48,8 @@ describe('voteOrderReducer', () => {
         bookAuthor: 'David Mitchell',
         id: 2
       }
+    },
+    voteOrder: [],
     }
   });
   
@@ -61,7 +64,11 @@ describe('voteOrderReducer', () => {
     }
     expect(voteOrderReducer(dummyState, action)).toEqual({
       // FIX TEST to expect voteOrder array, NOT obj of objs
-      [2]: { 
+      voteOrder: [2,1],
+
+      // let id1 = voteOrder[0]
+      postList: {
+      2: { 
         reviewTitle: "Cloud Atlas by David Mitchell: A Masterful Blend of Compelling Storytelling and Philosophical Musings",
         reviewAuthor: 'Floria Patrick Thomas II',
         dateTime: '2023-02-14',
@@ -71,7 +78,7 @@ describe('voteOrderReducer', () => {
         bookAuthor: 'David Mitchell',
         id: 2
       },
-      [1]: { 
+      1: { 
         reviewTitle: "Cloud Atlas by David Mitchell: A Masterful Blend of Compelling Storytelling and Philosophical Musings",
         reviewAuthor: 'Gloria Patrick Thomas III',
         dateTime: '2023-02-14',
@@ -80,7 +87,7 @@ describe('voteOrderReducer', () => {
         bookTitle: 'Cloud Atlas',
         bookAuthor: 'David Mitchell',
         id: 1
-      }
+      }}
     })
   })
 })
