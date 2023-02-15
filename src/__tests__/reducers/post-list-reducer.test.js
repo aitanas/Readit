@@ -1,4 +1,5 @@
 import postListReducer from '../../reducers/post-list-reducer'
+import * as c from '../../actions/ActionTypes'
 
 describe('postListReducer', () => {
 
@@ -56,7 +57,7 @@ describe('postListReducer', () => {
   test('should add new review to reviewList', () => {
     const { reviewTitle, reviewAuthor, review, bookAuthor, bookTitle, votes, id, dateTime } = reviewData;
     action = {
-      type: 'ADD_POST',
+      type: c.ADD_POST,
       reviewTitle: reviewTitle,
       reviewAuthor: reviewAuthor,
       review: review,
@@ -83,7 +84,7 @@ describe('postListReducer', () => {
 
   test('should increment votes by one', () => {
     action = {
-      type: 'UP_VOTE',
+      type: c.UP_VOTE,
       id: 1
     }
 
@@ -116,7 +117,7 @@ describe('postListReducer', () => {
 
   test('should decrement votes by one', () => {
     action = {
-      type: 'DOWN_VOTE',
+      type: c.DOWN_VOTE,
       id: 2
     }
 
@@ -148,7 +149,7 @@ describe('postListReducer', () => {
 
   // test('should sort posts by most popular', () => {
   //   action = {
-  //     type: 'SORT_BY_VOTES',
+  //     type: c.SORT_BY_VOTES,
   //   }
   //   expect(postListReducer(dummyState, action)).toEqual(
   //     [{ 

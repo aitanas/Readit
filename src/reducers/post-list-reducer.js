@@ -1,7 +1,9 @@
+import * as c from '../actions/ActionTypes'
+
 const reducer = (state = {}, action) => {
   const { reviewAuthor, reviewTitle, review, dateTime, bookAuthor, bookTitle, id, votes } = action;
   switch (action.type) {
-    case 'ADD_POST':
+    case c.ADD_POST:
       return Object.assign({}, state, {
         [id]: {
           reviewAuthor: reviewAuthor,
@@ -14,12 +16,12 @@ const reducer = (state = {}, action) => {
           id: id
         }
       });
-    case 'UP_VOTE':
+    case c.UP_VOTE:
       let newState = {...state}
       const newVotes =  newState[action.id]["votes"] + 1
       newState[action.id]["votes"] = newVotes
       return newState;
-    case 'DOWN_VOTE':
+    case c.DOWN_VOTE:
       let stateCopy = {...state}
       const decrementedVotes = state[action.id]["votes"] - 1
       stateCopy[action.id]["votes"] = decrementedVotes
