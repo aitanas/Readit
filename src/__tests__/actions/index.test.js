@@ -68,10 +68,10 @@ describe('readit actions', () => {
   })
 
   it('downvote should create DOWN_VOTE action', () => {
-    expect(actions.downvote(2).toEqual({
+    expect(actions.downvote(2)).toEqual({
       type: 'DOWN_VOTE',
       id: 2
-    }))
+    })
   })
   })
 

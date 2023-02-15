@@ -18,6 +18,13 @@ export const addPost = (post) => {
 export const upvote = (id) => {
   return {
     type: c.UP_VOTE,
-    id: id
+    id
+  }
+}
+
+export const downvote = (id) => {
+  return {
+    type: c.DOWN_VOTE,
+    id
   }
 }
