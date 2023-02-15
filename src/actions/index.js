@@ -29,3 +29,9 @@ export const downvote = (id) => {
   }
 }
 
+export const sortByVote = () => {
+  return {
+    type: c.SORT_BY_VOTES,
+  }
+}
+
