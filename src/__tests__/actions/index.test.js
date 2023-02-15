@@ -1,4 +1,5 @@
 import * as actions from './../../actions'
+import * as c from './../../actions/ActionTypes'
 
 describe('readit actions', () => {
 
@@ -48,7 +49,7 @@ describe('readit actions', () => {
   it('addPost should create ADD_POST action', () => {
   const { reviewTitle, reviewAuthor, review, bookAuthor, bookTitle, votes, id, dateTime } = reviewData;
     expect(actions.addPost(reviewData)).toEqual({
-      type: 'ADD_POST',
+      type: c.ADD_POST,
       reviewTitle: reviewTitle,
       reviewAuthor: reviewAuthor,
       review: review,
@@ -62,15 +63,21 @@ describe('readit actions', () => {
 
   it('upvote should create UP_VOTE action', () => {
     expect(actions.upvote(1)).toEqual({
-      type: 'UP_VOTE',
+      type: c.UP_VOTE,
       id: 1
     })
   })
 
   it('downvote should create DOWN_VOTE action', () => {
     expect(actions.downvote(2)).toEqual({
-      type: 'DOWN_VOTE',
+      type: c.DOWN_VOTE,
       id: 2
+    })
+  })
+
+  it('sortByVotes should create SORT_BY_VOTES action', () => {
+    expect(actions.sortByVote()).toEqual({
+      type: c.SORT_BY_VOTES
     })
   })
   })
