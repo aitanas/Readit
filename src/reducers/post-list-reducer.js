@@ -18,7 +18,12 @@ const reducer = (state = {}, action) => {
       let newState = {...state}
       const newVotes =  newState[action.id]["votes"] + 1
       newState[action.id]["votes"] = newVotes
-      return newState
+      return newState;
+    case 'DOWN_VOTE':
+      let stateCopy = {...state}
+      const decrementedVotes = state[action.id]["votes"] - 1
+      stateCopy[action.id]["votes"] = decrementedVotes
+      return stateCopy;
     default:
       return state;
   }

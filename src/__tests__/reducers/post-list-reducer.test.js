@@ -18,31 +18,35 @@ describe('postListReducer', () => {
     id: 1
   };
 
-  // dummy state data for testing up votes
-  const dummyState = {
-    [1]:
-    { 
-      reviewTitle: "Cloud Atlas by David Mitchell: A Masterful Blend of Compelling Storytelling and Philosophical Musings",
-      reviewAuthor: 'Gloria Patrick Thomas III',
-      dateTime: '2023-02-14',
-      review: 'Cloud Atlas by David Mitchell is a true masterpiece that left me captivated from beginning to end.',
-      votes: 0,
-      bookTitle: 'Cloud Atlas',
-      bookAuthor: 'David Mitchell',
-      id: 1
-    },
-    [2]:
-    { 
-      reviewTitle: "Cloud Atlas by David Mitchell: A Masterful Blend of Compelling Storytelling and Philosophical Musings",
-      reviewAuthor: 'Floria Patrick Thomas II',
-      dateTime: '2023-02-14',
-      review: 'Cloud Atlas by David Mitchell is a true masterpiece that left me captivated from beginning to end.',
-      votes: 0,
-      bookTitle: 'Cloud Atlas',
-      bookAuthor: 'David Mitchell',
-      id: 2
+  let dummyState;
+
+  beforeEach(() => {
+    // dummy state data for testing up votes
+    dummyState = {
+      [1]:
+      { 
+        reviewTitle: "Cloud Atlas by David Mitchell: A Masterful Blend of Compelling Storytelling and Philosophical Musings",
+        reviewAuthor: 'Gloria Patrick Thomas III',
+        dateTime: '2023-02-14',
+        review: 'Cloud Atlas by David Mitchell is a true masterpiece that left me captivated from beginning to end.',
+        votes: 0,
+        bookTitle: 'Cloud Atlas',
+        bookAuthor: 'David Mitchell',
+        id: 1
+      },
+      [2]:
+      { 
+        reviewTitle: "Cloud Atlas by David Mitchell: A Masterful Blend of Compelling Storytelling and Philosophical Musings",
+        reviewAuthor: 'Floria Patrick Thomas II',
+        dateTime: '2023-02-14',
+        review: 'Cloud Atlas by David Mitchell is a true masterpiece that left me captivated from beginning to end.',
+        votes: 2,
+        bookTitle: 'Cloud Atlas',
+        bookAuthor: 'David Mitchell',
+        id: 2
+      }
     }
-  }
+  });
   
   test('should return default state if no action type is passed into reducer', () => {
     expect(postListReducer({}, { type: null })).toEqual({});
@@ -102,14 +106,44 @@ describe('postListReducer', () => {
           reviewAuthor: 'Floria Patrick Thomas II',
           dateTime: '2023-02-14',
           review: 'Cloud Atlas by David Mitchell is a true masterpiece that left me captivated from beginning to end.',
-          votes: 0,
+          votes: 2,
           bookTitle: 'Cloud Atlas',
           bookAuthor: 'David Mitchell',
           id: 2
         }
         })
+      })
+
+  test('should decrement votes by one', () => {
+    const { reviewTitle, reviewAuthor, review, bookAuthor, bookTitle, votes, id, dateTime } = reviewData
+    action = {
+      type: 'DOWN_VOTE',
+      id: 2
+    }
+
+    expect(postListReducer(dummyState, action)).toEqual({
+      [1]:
+      {
+        reviewTitle: "Cloud Atlas by David Mitchell: A Masterful Blend of Compelling Storytelling and Philosophical Musings",
+        reviewAuthor: 'Gloria Patrick Thomas III',
+        dateTime: '2023-02-14',
+        review: 'Cloud Atlas by David Mitchell is a true masterpiece that left me captivated from beginning to end.',
+        votes: 0,
+        bookTitle: 'Cloud Atlas',
+        bookAuthor: 'David Mitchell',
+        id: 1
+      },
+      [2]:
+      {
+        reviewTitle: "Cloud Atlas by David Mitchell: A Masterful Blend of Compelling Storytelling and Philosophical Musings",
+        reviewAuthor: 'Floria Patrick Thomas II',
+        dateTime: '2023-02-14',
+        review: 'Cloud Atlas by David Mitchell is a true masterpiece that left me captivated from beginning to end.',
+        votes: 1,
+        bookTitle: 'Cloud Atlas',
+        bookAuthor: 'David Mitchell',
+        id: 2
+      }
+    });
   })
-  
-
-});
-
+})
