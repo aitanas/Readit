@@ -21,6 +21,18 @@ class PostControl extends React.Component {
     dispatch(action);
   }
 
+  handleUpvote = (id) => {
+    const { dispatch } = this.props;
+    const action = a.upvote(id);
+    dispatch(action);
+  }
+
+  handleDownvote = (id) => {
+    const { dispatch } = this.props;
+    const action = a.downvote(id);
+    dispatch(action);
+  }
+
   render() {
     // TODO: route to actual selected ticket
     // const postDetail = this.props.postList["1"]
@@ -30,7 +42,7 @@ class PostControl extends React.Component {
     return(
       <React.Fragment>
         {/* {detail} */}
-        <List postList={this.props.postList} />
+        <List postList={this.props.postList} onUpvote={this.handleUpvote} onDownvote={this.handleDownvote} />
         <CreatePost onAddNewPost={this.handleAddingNewPost} />
       </React.Fragment>
 

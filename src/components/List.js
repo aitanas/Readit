@@ -3,12 +3,13 @@ import Post from '../components/Post';
 import PropTypes from "prop-types";
 
 function List(props){
-  // const { reviewAuthor, reviewTitle, review, dateTime, bookAuthor, bookTitle, id, votes } = props;
 
   return (
     <React.Fragment>
       {Object.values(props.postList).map((post) => 
         <Post
+          whenUpvoted = {props.onUpvote}
+          whenDownvoted = {props.onDownvote}
           reviewAuthor = {post.reviewAuthor}
           reviewTitle = {post.reviewTitle}
           review = {post.review}
@@ -24,7 +25,9 @@ function List(props){
 }
 
 List.propTypes = {
-  postList: PropTypes.object
+  postList: PropTypes.object,
+  onUpvote: PropTypes.func,
+  onDownvote: PropTypes.func
 }
 
 export default List;

@@ -24,8 +24,8 @@ Sites like Reddit, HackerNews and others offer a collection of different pages o
 __User Stories:__
 * ✅ As a user, I want to enter content into a form and submit to create a new post.
 * ✅ As a user, I want my new posts to include a timestamp. And I want to see when other listings were posted, too.
-* As a user, I want to upvote posts I particularly enjoy.
-* As a user, I want to downvote posts I don't like, or find inappropriate.
+* ✅ As a user, I want to upvote posts I particularly enjoy.
+* ✅ As a user, I want to downvote posts I don't like, or find inappropriate.
 * As a user, I'd like posts with the most upvotes to appear higher on the page. 
 
 ### Further Exploration (Stretch Goals)
