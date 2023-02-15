@@ -4,11 +4,11 @@ import './index.css';
 import App from './components/App';
 import rootReducer from './reducers/index.js'
 import { createStore } from 'redux';
-// import Reviews from './ReviewSeedData'
+import seedData from './ReviewSeedData'
 import { Provider } from 'react-redux';
 
-// TODO: createStore can take second arg for preloadedData
-const store = createStore(rootReducer);
+// Note: !!! createStore can take second arg for preloadedData
+const store = createStore(rootReducer, {postList: seedData});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
