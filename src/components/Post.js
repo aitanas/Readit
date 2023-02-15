@@ -5,12 +5,9 @@ function Post(props) {
   const { reviewAuthor, reviewTitle, review, dateTime, bookAuthor, bookTitle } = props;
   return (
     <React.Fragment>
-      <h1>Review</h1>
       <h2>{reviewTitle}</h2>
-      <h2>{reviewAuthor}</h2>
-      <h3>{bookTitle}</h3>
-      <h3>{bookAuthor}</h3>
-      <p>{dateTime}</p>
+      <span>Posted by {reviewAuthor} {dateTime}</span>
+      <h3>{bookTitle} by {bookAuthor}</h3>
       <p>{review}</p>
     </React.Fragment>
   );

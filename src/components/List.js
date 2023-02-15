@@ -14,7 +14,7 @@ function List(props){
           review = {post.review}
           bookAuthor = {post.bookAuthor}
           bookTitle = {post.bookTitle}
-          date = {post.date}
+          dateTime = {post.dateTime}
           votes = {post.votes}
           id = {post.id}
           key = {post.id} />

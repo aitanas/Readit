@@ -22,21 +22,13 @@ Sites like Reddit, HackerNews and others offer a collection of different pages o
 
 ### Objectives (MVP)
 __User Stories:__
-* As a user, I want to enter content into a form and submit to create a new post.
-* As a user, I want my new posts to include a timestamp. And I want to see when other listings were posted, too.
+* ✅ As a user, I want to enter content into a form and submit to create a new post.
+* ✅ As a user, I want my new posts to include a timestamp. And I want to see when other listings were posted, too.
 * As a user, I want to upvote posts I particularly enjoy.
 * As a user, I want to downvote posts I don't like, or find inappropriate.
 * As a user, I'd like posts with the most upvotes to appear higher on the page. 
 
 ### Further Exploration (Stretch Goals)
-
-__User stories:__
-* As a user, I want the option to edit a coffee sack's properties after entering them just in case I make a mistake.
-* As a user, I want to be able to delete a coffee sack.
-* As a user, I want a coffee sack to update to say "Out of Stock" once it's empty.
-* As a user, I want coffee sacks with less than 10 pounds to include a message that says "Almost Empty" so I can buy a pound of it before it's gone!
-* As a user, I want to have coffee prices to be color-coded for easy readability. This could be based on their price, their origin or roast, or the amount of pounds left.
-* As a user, I want this application to be nicely styled. (Use stylesheets and CSS objects!)
 
 __Further Exploration__
 * As a user, I want to click a post to view additional details. For now simply hide/show some message content. (Hint: You could create a currentlySelectedPost Redux state key, and alter the value based on which post the user is selecting.)

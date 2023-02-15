@@ -1,17 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { v4 } from 'uuid';
+import { formatDistanceToNow } from 'date-fns';
 
 const CreatePost = (props) => {
   // TODO: add internal onSubmit handler
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const date = formatDistanceToNow(new Date(), {addSuffix: true});
+
     const newPost = {
       reviewAuthor: e.target.reviewAuthor.value,
       reviewTitle: e.target.reviewTitle.value,
       bookTitle: e.target.bookTitle.value,
       bookAuthor: e.target.bookAuthor.value,
-      dateTime: e.target.dateTime.value,
+      dateTime: date,
       review: e.target.review.value,
       id: v4()
     }
@@ -30,10 +34,6 @@ const CreatePost = (props) => {
           type='text'
           name='reviewTitle'
           placeholder='Review Title' />
-        <input
-          type='text'
-          name='dateTime'
-          placeholder='DateTime' />
         <input
           type='text'
           name='review'
