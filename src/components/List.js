@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 function List(props){
   // order array by IDs
   // voteOrder = [2,1]
-  
+
   // for every id in order ["fdskl;fdsa", "fdshjkf", "fdshajk"]
     // add it to new array of Post obj [{}, {}, {}]
   
