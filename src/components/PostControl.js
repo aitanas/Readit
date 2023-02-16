@@ -33,37 +33,42 @@ class PostControl extends React.Component {
     dispatch(action);
   }
 
+  sortPosts = () => {
+    const { dispatch } = this.props;
+    const action = a.sortByVote();
+    dispatch(action);
+  }
   render() {
     // TODO: route to actual selected ticket
     // const postDetail = this.props.postList["1"]
     // const detail = <Detail post={postDetail}/>
-
+    
     // get const list component
     return(
       <React.Fragment>
         {/* {detail} */}
-        <List postList={this.props.postList} onUpvote={this.handleUpvote} onDownvote={this.handleDownvote} />
+        <List postList={this.props.postList} voteOrder={this.props.voteOrder} sort={this.sortPosts} onUpvote={this.handleUpvote} onDownvote={this.handleDownvote} />
         <CreatePost onAddNewPost={this.handleAddingNewPost} />
       </React.Fragment>
 
     );
   }
-
 }
 
 // Map to props!
 const mapStateToProps = state => {
-  // ordered-by-votes array containing IDs, store in state
   
   return {
     postList: state.postList,
-    // voteOrder: state.voteOrder
+    // ordered-by-votes array containing post objects
+    voteOrder: state.voteOrder
   }
 }
 
 // Proptypes!
 PostControl.propTypes = {
   postList: PropTypes.object,
+  voteOrder: PropTypes.array
 }
 
 // Connect wrapper

@@ -3,18 +3,19 @@ import Post from '../components/Post';
 import PropTypes from "prop-types";
 
 function List(props){
-  // order array by IDs
-  // voteOrder = [2,1]
 
-  // for every id in order ["fdskl;fdsa", "fdshjkf", "fdshajk"]
-    // add it to new array of Post obj [{}, {}, {}]
-  
-    // create ordered array HERE
+  const { voteOrder, sort } = props;
+  // OKAY
+  // we have the sorted objects
+  // we need to run the sort function in order to populate voteOrder
+  // do we do it here?
+  // do we do it in Control?
+  // Next time on Code...
+  // THESE are THEIR stories #readit
+
   return (
     <React.Fragment>
-      {/* call the ordered array 
-      orderedArray.map => */}
-      {Object.values(props.postList).map((post) => 
+      {voteOrder.map((post) => 
         <Post
           whenUpvoted = {props.onUpvote}
           whenDownvoted = {props.onDownvote}
@@ -33,7 +34,9 @@ function List(props){
 }
 
 List.propTypes = {
+  voteOrder: PropTypes.array,
   postList: PropTypes.object,
+  sort: PropTypes.func,
   onUpvote: PropTypes.func,
   onDownvote: PropTypes.func
 }
